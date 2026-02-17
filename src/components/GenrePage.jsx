@@ -4,7 +4,6 @@ import './GenrePage.css';
 
 const GenrePage = () => {
   const { genreId } = useParams();
-  const [releaseCount] = useState(1248);
 
   const genreData = {
     techno: {
@@ -70,11 +69,6 @@ const GenrePage = () => {
   };
 
   const genre = genreData[genreId] || genreData.techno;
-  const currentTime = new Date().toLocaleTimeString('en-US', { 
-    hour: '2-digit', 
-    minute: '2-digit', 
-    hour12: false 
-  }) + ' UTC';
 
   return (
     <div className="genre-page">
@@ -102,13 +96,13 @@ const GenrePage = () => {
         </div>
 
         <div className="genre-stats">
-          <div className="stat-item">
+          <div className="stat-pill">
             <span className="stat-number">{genre.releases.toLocaleString()}</span>
             <span className="stat-label">RELEASES</span>
           </div>
-          <div className="stat-item">
+          <div className="stat-pill">
             <span className="stat-label">UPDATED:</span>
-            <span className="stat-time">{currentTime}</span>
+            <span className="stat-time">{genre.updated}</span>
           </div>
         </div>
       </div>
