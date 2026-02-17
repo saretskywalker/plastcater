@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { ShoppingCart, LogIn, Search, Globe } from 'lucide-react';
 import './Header.css';
 
@@ -6,17 +7,16 @@ const Header = () => {
   const [cartCount, setCartCount] = useState(0);
   const [language, setLanguage] = useState('en');
   const [searchValue, setSearchValue] = useState('');
-  const [activeGenre, setActiveGenre] = useState('house');
 
   const genres = [
-    'house',
-    'drum & bass',
-    'dubstep',
-    'minimal',
-    'electro',
-    'acid',
-    'ambient',
-    'experimental'
+    { id: 'techno', name: 'house' },
+    { id: 'drum-bass', name: 'drum & bass' },
+    { id: 'dubstep', name: 'dubstep' },
+    { id: 'minimal', name: 'minimal' },
+    { id: 'electro', name: 'electro' },
+    { id: 'acid', name: 'acid' },
+    { id: 'ambient', name: 'ambient' },
+    { id: 'experimental', name: 'experimental' }
   ];
 
   const languages = ['EN', 'RU', 'DE', 'FR'];
@@ -28,10 +28,10 @@ const Header = () => {
         {/* Левая часть - Логотип и название */}
         <div className="header-left">
           <div className="logo-section">
-            <div className="logo">
+            <Link to="/" className="logo">
               <span className="logo-icon">♫</span>
-            </div>
-            <h1 className="site-title">plastcater</h1>
+            </Link>
+            <Link to="/" className="site-title">plastcater</Link>
           </div>
         </div>
 
@@ -83,23 +83,25 @@ const Header = () => {
       </div>
 
       {/* Меню жанров */}
-      <div className="genres-menu">
+      <nav className="genres-menu">
         <div className="genres-wrapper">
           {genres.map((genre) => (
-            <a
-              key={genre}
-              href={`#${genre.toLowerCase()}`}
-              className={`genre-link ${activeGenre === genre ? 'active' : ''}`}
-              onClick={(e) => {
-                e.preventDefault();
-                setActiveGenre(genre);
-              }}
+            <Link
+              key={genre.id}
+              to={`/genre/${genre.id}`}
+              className="genre-link"
             >
-              {genre}
-            </a>
+              {genre.name}
+            </Link>
           ))}
+          <Link
+            to="/sale"
+            className="genre-link sale-link"
+          >
+            sale
+          </Link>
         </div>
-      </div>
+      </nav>
     </header>
   );
 };

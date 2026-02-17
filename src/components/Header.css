@@ -31,7 +31,7 @@
   min-height: 70px;
 }
 
-/* Левая часть - логотип и название */
+/* Л��вая часть - логотип и название */
 .header-left {
   display: flex;
   align-items: center;
@@ -56,6 +56,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .logo:hover {
@@ -81,6 +82,12 @@
   letter-spacing: 1px;
   text-transform: lowercase;
   margin-left: 8px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.site-title:hover {
+  color: var(--accent-purple);
 }
 
 /* Центральная часть - поиск */
@@ -241,8 +248,9 @@
   display: flex;
   align-items: center;
   padding: 0 20px;
-  gap: 32px;
+  gap: 0;
   min-height: 50px;
+  width: 100%;
 }
 
 .genre-link {
@@ -262,6 +270,13 @@
   display: flex;
   align-items: center;
   height: 50px;
+  flex: 1;
+  justify-content: center;
+  border-right: 1px solid var(--dark-tertiary);
+}
+
+.genre-link:last-of-type {
+  border-right: none;
 }
 
 .genre-link::after {
@@ -273,7 +288,7 @@
   height: 2px;
   background-color: var(--accent-purple);
   transform: scaleX(0);
-  transform-origin: left;
+  transform-origin: center;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -285,12 +300,17 @@
   transform: scaleX(1);
 }
 
-.genre-link.active {
-  color: var(--light-text);
+.genre-link.sale-link {
+  color: var(--accent-purple);
+  font-weight: 700;
 }
 
-.genre-link.active::after {
-  transform: scaleX(1);
+.genre-link.sale-link:hover {
+  color: var(--accent-purple-light);
+}
+
+.genre-link.sale-link::after {
+  background-color: var(--accent-purple-light);
 }
 
 /* Responsive дизайн */
@@ -309,12 +329,14 @@
   }
 
   .genres-wrapper {
-    gap: 24px;
+    gap: 0;
     padding: 0 16px;
   }
 
   .genre-link {
     font-size: 11px;
+    flex: none;
+    padding: 0 12px;
   }
 }
 
@@ -347,13 +369,16 @@
   }
 
   .genres-wrapper {
-    gap: 20px;
+    gap: 0;
     padding: 0 12px;
+    overflow-x: auto;
   }
 
   .genre-link {
     font-size: 10px;
     letter-spacing: 0.5px;
+    flex: none;
+    padding: 0 10px;
   }
 }
 
@@ -382,12 +407,12 @@
   }
 
   .genres-wrapper {
-    gap: 16px;
     padding: 0 10px;
   }
 
   .genre-link {
     font-size: 9px;
     letter-spacing: 0.3px;
+    padding: 0 8px;
   }
 }
