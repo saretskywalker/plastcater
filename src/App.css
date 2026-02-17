@@ -1,0 +1,85 @@
+:root {
+  --dark-bg: #0f0f0f;
+  --dark-secondary: #1a1a1a;
+  --dark-tertiary: #2a2a2a;
+  --dark-accent: #252525;
+  --light-text: #ffffff;
+  --gray-text: #888888;
+  --accent-purple: #7c3aed;
+  --accent-purple-light: #a855f7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-purple);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-purple-light);
+}
+
+.App {
+  min-height: 100vh;
+  background-color: var(--dark-bg);
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h2 {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: var(--light-text);
+}
+
+.hero p {
+  font-size: 24px;
+  color: var(--accent-purple);
+}
