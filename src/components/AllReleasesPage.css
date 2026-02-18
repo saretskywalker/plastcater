@@ -1,0 +1,301 @@
+:root {
+  --dark-bg: #0f0f0f;
+  --dark-secondary: #1a1a1a;
+  --dark-tertiary: #2a2a2a;
+  --light-text: #ffffff;
+  --gray-text: #888888;
+  --gray-light: #555555;
+  --accent-purple: #7c3aed;
+  --accent-purple-light: #a855f7;
+}
+
+.all-releases-page {
+  min-height: 100vh;
+  background-color: var(--dark-bg);
+  padding: 40px 0;
+}
+
+.all-releases-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Секция категории */
+.category-section {
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--dark-tertiary);
+}
+
+.category-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Заголовок категории */
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.category-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--light-text);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.category-view-all {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-purple);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  padding: 10px 16px;
+  border: 1px solid var(--accent-purple);
+  border-radius: 6px;
+}
+
+.category-view-all:hover {
+  background-color: var(--accent-purple);
+  color: var(--light-text);
+}
+
+/* Сетка релизов категории */
+.category-releases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 24px;
+}
+
+/* Карточка релиза */
+.release-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.release-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Обертка изображения */
+.release-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--dark-secondary);
+}
+
+.release-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.release-card:hover .release-image {
+  transform: scale(1.05);
+}
+
+/* Затемнение */
+.release-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Кнопки действия */
+.release-actions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 20px;
+  z-index: 2;
+  animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+}
+
+.play-btn {
+  background-color: var(--accent-purple);
+  color: var(--light-text);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+}
+
+.play-btn:hover {
+  background-color: var(--accent-purple-light);
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.5);
+}
+
+.view-btn {
+  background-color: var(--light-text);
+  color: var(--dark-bg);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.view-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.3);
+  background-color: var(--gray-light);
+  color: var(--light-text);
+}
+
+/* Информация релиза */
+.release-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.release-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--light-text);
+  margin: 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.release-card:hover .release-title {
+  color: var(--accent-purple);
+}
+
+.release-artist {
+  font-size: 13px;
+  color: var(--gray-text);
+  margin: 0;
+  font-weight: 500;
+}
+
+.release-meta {
+  font-size: 11px;
+  color: var(--gray-light);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .category-releases-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .category-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .all-releases-page {
+    padding: 24px 0;
+  }
+
+  .all-releases-container {
+    padding: 0 16px;
+  }
+
+  .category-section {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+
+  .category-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+
+  .category-title {
+    font-size: 20px;
+  }
+
+  .category-view-all {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .category-releases-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .all-releases-page {
+    padding: 16px 0;
+  }
+
+  .all-releases-container {
+    padding: 0 12px;
+  }
+
+  .category-section {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+  }
+
+  .category-title {
+    font-size: 18px;
+  }
+
+  .category-releases-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+}
