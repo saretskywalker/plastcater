@@ -5,7 +5,7 @@ import ReleaseModal from './ReleaseModal';
 import './NewReleasesSection.css';
 
 const NewReleasesSection = () => {
-  const [hoveredId, setHoveredId] = useState(null);
+  // hoveredId больше не нужен, анимацией управляет CSS
   const [selectedRelease, setSelectedRelease] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -153,12 +153,11 @@ const NewReleasesSection = () => {
     setSelectedRelease(null);
   };
 
+  // Компонент карточки оптимизирован:
+  // 1. Убраны обработчики onMouseEnter/onMouseLeave
+  // 2. Overlay и Actions рендерятся всегда (скрыты через CSS)
   const ReleaseCard = ({ release }) => (
-    <div
-      className="release-card"
-      onMouseEnter={() => setHoveredId(release.id)}
-      onMouseLeave={() => setHoveredId(null)}
-    >
+    <div className="release-card">
       <div className="release-image-wrapper">
         <img
           src={release.image}
@@ -167,24 +166,24 @@ const NewReleasesSection = () => {
           onClick={() => handleOpenModal(release)}
         />
 
-        {hoveredId === release.id && (
-          <div className="release-overlay"></div>
-        )}
+        {/* Элементы всегда в DOM для плавной анимации disappear */}
+        <div className="release-overlay"></div>
 
-        {hoveredId === release.id && (
-          <div className="release-actions">
-            <button className="action-btn play-btn" title="Play">
-              <Play size={28} fill="currentColor" />
-            </button>
-            <button 
-              className="action-btn view-btn" 
-              title="View"
-              onClick={() => handleOpenModal(release)}
-            >
-              <Eye size={24} />
-            </button>
-          </div>
-        )}
+        <div className="release-actions">
+          <button className="action-btn play-btn" title="Play">
+            <Play size={28} fill="currentColor" />
+          </button>
+          <button 
+            className="action-btn view-btn" 
+            title="View"
+            onClick={(e) => {
+              e.stopPropagation(); // Предотвращаем всплытие клика
+              handleOpenModal(release);
+            }}
+          >
+            <Eye size={24} />
+          </button>
+        </div>
       </div>
 
       <div className="release-info" onClick={() => handleOpenModal(release)}>
