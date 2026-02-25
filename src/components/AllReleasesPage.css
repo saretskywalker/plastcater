@@ -7,6 +7,8 @@
   --gray-light: #555555;
   --accent-purple: #7c3aed;
   --accent-purple-light: #a855f7;
+  --success-green: #10b981;
+  --success-green-light: #34d399;
 }
 
 .all-releases-page {
@@ -108,10 +110,49 @@
   gap: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .release-card:hover {
   transform: translateY(-8px);
+}
+
+/* ✅ ИСПРАВЛЕНО: Синхронизированная анимация для In Cart */
+.release-card.in-cart .release-image-wrapper {
+  border: 3px solid var(--success-green);
+  transition: border 0.3s ease;
+}
+
+.release-card.in-cart::after {
+  content: '✓ In Cart';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: var(--success-green);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 10;
+  /* ✅ ИСПРАВЛЕНО: Одинаковый timing для появления и исчезновения */
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.release-card:not(.in-cart)::after {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Отключение анимаций при загрузке */
+.release-card.no-animation,
+.release-card.no-animation * {
+  animation: none !important;
+  transition: none !important;
 }
 
 /* Обертка изображения */
@@ -123,6 +164,8 @@
   border-radius: 8px;
   background-color: var(--dark-secondary);
   z-index: 1;
+  border: 3px solid transparent;
+  transition: border 0.3s ease;
 }
 
 .release-image {
@@ -146,13 +189,17 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
+  
   opacity: 0;
   pointer-events: none;
+  
   transition: opacity 0.3s ease;
+  will-change: opacity;
 }
 
 .release-card:hover .release-overlay {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* Кнопки действия */
@@ -160,16 +207,22 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  
   display: flex;
   gap: 20px;
   z-index: 3;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  pointer-events: none;
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
 }
 
 .release-card:hover .release-actions {
   opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
 }
 
 .action-btn {
@@ -244,7 +297,8 @@
   font-weight: 500;
 }
 
-/* Responsive */
+/* ============ RESPONSIVE ============ */
+
 @media (max-width: 1200px) {
   .category-releases-grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

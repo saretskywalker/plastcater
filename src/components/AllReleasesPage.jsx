@@ -1,69 +1,87 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Play, Eye, ChevronRight } from 'lucide-react';
-import ReleaseModal from './ReleaseModal';
-import { releasesDatabase, getReleasesByGenre, getGenres } from '../data/releases';
+import { getReleasesByGenre, getGenres } from '../data/releases';
 import './AllReleasesPage.css';
 
 const AllReleasesPage = () => {
-  const [selectedRelease, setSelectedRelease] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [cartItems, setCartItems] = useState([]);
+  const navigate = useNavigate();
 
-  // Получаем все жанры из базы данных
   const genres = getGenres();
 
-  const handleOpenModal = (release) => {
-    setSelectedRelease(release);
-    setIsModalOpen(true);
+  useEffect(() => {
+    setIsLoading(false);
+    loadCart();
+
+    // Слушаем обновления корзины
+    const handleCartUpdated = () => {
+      loadCart();
+    };
+
+    window.addEventListener('cartUpdated', handleCartUpdated);
+    return () => window.removeEventListener('cartUpdated', handleCartUpdated);
+  }, []);
+
+  const loadCart = () => {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    setCartItems(cart.map(item => item.id));
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedRelease(null);
+  const isInCart = (releaseId) => {
+    return cartItems.includes(releaseId);
+  };
+
+  const handleViewDetails = (e, releaseId) => {
+    e.preventDefault();
+    navigate(`/release/${releaseId}`);
   };
 
   // Компонент карточки релиза
   const ReleaseCard = ({ release }) => (
-    <div className="release-card">
+    <Link 
+      to={`/release/${release.id}`}
+      className={`release-card ${isLoading ? 'no-animation' : ''} ${isInCart(release.id) ? 'in-cart' : ''}`}
+      style={{ textDecoration: 'none' }}
+    >
       <div className="release-image-wrapper">
         <img
           src={release.image}
           alt={release.title}
           className="release-image"
-          onClick={() => handleOpenModal(release)}
         />
 
-        {/* Элементы всегда в DOM для плавной анимации */}
         <div className="release-overlay"></div>
 
         <div className="release-actions">
-          <button className="action-btn play-btn" title="Play">
+          <button 
+            className="action-btn play-btn" 
+            title="Play"
+            onClick={(e) => e.preventDefault()}
+          >
             <Play size={28} fill="currentColor" />
           </button>
           <button 
             className="action-btn view-btn" 
-            title="View"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleOpenModal(release);
-            }}
+            title="View Details"
+            onClick={(e) => handleViewDetails(e, release.id)}
           >
             <Eye size={24} />
           </button>
         </div>
       </div>
 
-      <div className="release-info" onClick={() => handleOpenModal(release)}>
+      <div className="release-info">
         <h3 className="release-title">{release.title}</h3>
         <p className="release-artist">{release.artist}</p>
         <p className="release-meta">
           {release.label} • {release.format}
         </p>
       </div>
-    </div>
+    </Link>
   );
 
-  // Маппинг названий жанров для отображения
   const genreNames = {
     techno: 'Techno',
     house: 'House',
@@ -104,13 +122,6 @@ const AllReleasesPage = () => {
           );
         })}
       </div>
-
-      {/* Modal */}
-      <ReleaseModal 
-        release={selectedRelease} 
-        isOpen={isModalOpen} 
-        onClose={handleCloseModal}
-      />
     </div>
   );
 };

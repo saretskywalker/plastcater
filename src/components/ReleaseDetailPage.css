@@ -1,0 +1,490 @@
+:root {
+  --dark-bg: #0f0f0f;
+  --dark-secondary: #1a1a1a;
+  --dark-tertiary: #2a2a2a;
+  --light-text: #ffffff;
+  --gray-text: #888888;
+  --gray-light: #555555;
+  --accent-purple: #7c3aed;
+  --accent-purple-light: #a855f7;
+  --success-green: #10b981;
+  --success-green-light: #34d399;
+}
+
+.release-detail-page {
+  min-height: 100vh;
+  background-color: var(--dark-bg);
+  padding: 40px 20px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  background: var(--dark-secondary);
+  border: 1px solid var(--dark-tertiary);
+  color: var(--light-text);
+  cursor: pointer;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+
+.close-btn:hover {
+  background-color: var(--dark-tertiary);
+  color: var(--accent-purple);
+}
+
+.release-detail-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ✅ ИСПРАВЛЕНО: Название и артист в одной секции сверху */
+.release-detail-title-wrapper {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.release-detail-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--light-text);
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.release-detail-artist {
+  font-size: 20px;
+  color: var(--accent-purple);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Раскладка контента */
+.release-detail-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* Левая часть - картинка */
+.detail-image-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.detail-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: var(--dark-secondary);
+  border: 1px solid var(--dark-tertiary);
+}
+
+.detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Правая часть - информация */
+.detail-info-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+/* ✅ ИСПРАВЛЕНО: Плашки Label и Format */
+.detail-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background-color: var(--dark-secondary);
+  border: 1px solid var(--dark-tertiary);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.meta-item:hover {
+  border-color: var(--accent-purple);
+  background-color: var(--dark-tertiary);
+}
+
+.meta-label {
+  font-size: 12px;
+  color: var(--gray-text);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.meta-value {
+  font-size: 18px;
+  color: var(--light-text);
+  font-weight: 600;
+}
+
+/* Описание */
+.detail-description {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background-color: var(--dark-secondary);
+  border: 1px solid var(--dark-tertiary);
+  border-radius: 8px;
+}
+
+.detail-description h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--light-text);
+  margin: 0;
+}
+
+.detail-description p {
+  font-size: 14px;
+  color: var(--gray-text);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Дополнительные детали */
+.detail-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-details h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--light-text);
+  margin: 0;
+}
+
+.details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.details-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background-color: var(--dark-secondary);
+  border: 1px solid var(--dark-tertiary);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.details-list li:hover {
+  border-color: var(--accent-purple);
+  background-color: var(--dark-tertiary);
+}
+
+.detail-key {
+  font-size: 12px;
+  color: var(--gray-text);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-value {
+  font-size: 16px;
+  color: var(--light-text);
+  font-weight: 600;
+}
+
+/* ✅ ИСПРАВЛЕНО: Новая компоновка кнопок */
+.detail-actions-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.action-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background-color: var(--accent-purple);
+  color: var(--light-text);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.action-play:hover {
+  background-color: var(--accent-purple-light);
+  transform: translateY(-2px);
+}
+
+.action-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background-color: var(--dark-secondary);
+  color: var(--light-text);
+  border: 1px solid var(--dark-tertiary);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.action-cart:hover {
+  background-color: var(--dark-tertiary);
+  border-color: var(--accent-purple);
+}
+
+.action-cart.active {
+  background-color: var(--success-green);
+  color: #ffffff;
+  border-color: var(--success-green);
+  font-weight: 700;
+}
+
+.action-cart.active:hover {
+  background-color: var(--success-green-light);
+  border-color: var(--success-green-light);
+}
+
+/* ✅ НОВОЕ: Кнопка лайка - отдельно справа */
+.action-favorites {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: var(--dark-secondary);
+  color: var(--light-text);
+  border: 1px solid var(--dark-tertiary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.action-favorites:hover {
+  background-color: var(--dark-tertiary);
+  border-color: var(--accent-purple);
+}
+
+.action-favorites.active {
+  background-color: var(--accent-purple);
+  color: var(--light-text);
+  border-color: var(--accent-purple);
+}
+
+.action-favorites svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Цена */
+.detail-price {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background-color: var(--dark-secondary);
+  border: 1px solid var(--dark-tertiary);
+  border-radius: 8px;
+  justify-content: space-between;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent-purple);
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 1200px) {
+  .release-detail-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .detail-image-wrapper {
+    max-width: 400px;
+  }
+
+  .release-detail-title {
+    font-size: 36px;
+  }
+
+  .release-detail-artist {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .release-detail-page {
+    padding: 20px 16px;
+  }
+
+  .close-btn {
+    top: 20px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+
+  .release-detail-container {
+    padding: 0;
+  }
+
+  .release-detail-title-wrapper {
+    margin-bottom: 32px;
+  }
+
+  .release-detail-content {
+    gap: 32px;
+  }
+
+  .detail-image-wrapper {
+    max-width: 100%;
+  }
+
+  .release-detail-title {
+    font-size: 28px;
+  }
+
+  .release-detail-artist {
+    font-size: 16px;
+  }
+
+  .detail-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .details-list {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-actions-wrapper {
+    flex-direction: column;
+  }
+
+  .detail-actions {
+    width: 100%;
+  }
+
+  .action-play,
+  .action-cart {
+    width: 100%;
+  }
+
+  .action-favorites {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .release-detail-page {
+    padding: 16px 12px;
+  }
+
+  .close-btn {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+  }
+
+  .close-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .release-detail-title-wrapper {
+    margin-bottom: 24px;
+  }
+
+  .release-detail-title {
+    font-size: 20px;
+  }
+
+  .release-detail-artist {
+    font-size: 14px;
+  }
+
+  .detail-description,
+  .detail-details h3 {
+    padding: 16px;
+  }
+
+  .detail-description p {
+    font-size: 13px;
+  }
+
+  .details-list li {
+    padding: 12px;
+  }
+
+  .meta-item {
+    padding: 16px;
+  }
+
+  .action-play,
+  .action-cart {
+    font-size: 13px;
+    padding: 12px 16px;
+  }
+
+  .price {
+    font-size: 28px;
+  }
+
+  .action-favorites {
+    width: 48px;
+    height: 48px;
+  }
+}

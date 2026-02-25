@@ -77,6 +77,23 @@
   white-space: nowrap;
 }
 
+.close-results-btn {
+  background: none;
+  border: none;
+  color: var(--gray-text);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.close-results-btn:hover {
+  color: var(--accent-purple);
+}
+
 .search-results-list {
   display: flex;
   flex-direction: column;
@@ -90,7 +107,7 @@
   border-bottom: 1px solid var(--dark-tertiary);
   cursor: pointer;
   transition: all 0.3s ease;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .search-result-item:hover {
@@ -101,13 +118,15 @@
   border-bottom: none;
 }
 
+/* ✅ ИСПРАВЛЕНО: Убрана анимация с изображения */
 .result-image {
   position: relative;
   width: 60px;
   height: 60px;
+  min-width: 60px;
   border-radius: 6px;
   overflow: hidden;
-  background-color: var(--dark-bg);
+  background-color: var(--dark-tertiary);
   flex-shrink: 0;
 }
 
@@ -115,85 +134,37 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.search-result-item:hover .result-image img {
-  transform: scale(1.05);
-}
-
-.result-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
-
-.result-actions {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  gap: 6px;
-  z-index: 2;
-}
-
-.result-action-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-.result-action-btn.play-btn {
-  background-color: var(--accent-purple);
-  color: var(--light-text);
-}
-
-.result-action-btn.play-btn:hover {
-  background-color: var(--accent-purple-light);
-  transform: scale(1.1);
-}
-
-.result-action-btn.view-btn {
-  background-color: var(--light-text);
-  color: var(--dark-bg);
-}
-
-.result-action-btn.view-btn:hover {
-  background-color: var(--gray-light);
-  transform: scale(1.1);
 }
 
 .result-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   flex: 1;
   min-width: 0;
 }
 
 .result-title {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--light-text);
-  margin: 0 0 4px 0;
+  margin: 0;
+  line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.3s ease;
+}
+
+.search-result-item:hover .result-title {
+  color: var(--accent-purple);
 }
 
 .result-artist {
   font-size: 12px;
-  color: var(--accent-purple);
-  margin: 0 0 2px 0;
+  color: var(--gray-text);
+  margin: 0;
+  line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -201,40 +172,66 @@
 
 .result-meta {
   font-size: 11px;
-  color: var(--gray-text);
+  color: var(--gray-light);
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+/* ✅ НОВОЕ: Кнопка глазика */
+.result-view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 6px;
+  border: 1px solid var(--dark-tertiary);
+  background-color: transparent;
+  color: var(--gray-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.result-view-btn:hover {
+  background-color: var(--dark-tertiary);
+  color: var(--accent-purple);
+  border-color: var(--accent-purple);
+}
+
 .search-results-empty {
-  padding: 32px 20px;
+  padding: 40px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 8px;
 }
 
 .search-results-empty p {
   font-size: 16px;
-  font-weight: 700;
   color: var(--light-text);
+  margin: 0;
+  font-weight: 600;
+}
+
+.empty-suggestion {
+  font-size: 12px;
+  color: var(--gray-text);
   margin: 0;
 }
 
-.search-results-empty span {
-  font-size: 13px;
-  color: var(--gray-text);
-}
-
-/* Scrollbar */
+/* Скроллбар */
 .search-results-container::-webkit-scrollbar {
   width: 6px;
 }
 
 .search-results-container::-webkit-scrollbar-track {
-  background: var(--dark-bg);
+  background: var(--dark-secondary);
 }
 
 .search-results-container::-webkit-scrollbar-thumb {
@@ -244,6 +241,40 @@
 
 .search-results-container::-webkit-scrollbar-thumb:hover {
   background: var(--accent-purple-light);
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 1200px) {
+  .search-results-container {
+    width: 95%;
+    max-height: 500px;
+  }
+
+  .search-results-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .result-image {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+  }
+
+  .result-title {
+    font-size: 13px;
+  }
+
+  .result-artist {
+    font-size: 11px;
+  }
+
+  .result-view-btn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -261,6 +292,7 @@
   .result-image {
     width: 50px;
     height: 50px;
+    min-width: 50px;
   }
 
   .result-title {
@@ -270,12 +302,24 @@
   .result-artist {
     font-size: 11px;
   }
+
+  .result-view-btn {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+  }
+
+  .result-view-btn svg {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 @media (max-width: 480px) {
   .search-results-container {
     width: 98%;
     top: 70px;
+    max-height: 400px;
   }
 
   .search-result-item {
@@ -286,5 +330,38 @@
   .result-image {
     width: 45px;
     height: 45px;
+    min-width: 45px;
+  }
+
+  .result-title {
+    font-size: 12px;
+  }
+
+  .result-artist {
+    font-size: 10px;
+  }
+
+  .result-view-btn {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+  }
+
+  .result-view-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .search-results-header {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .search-results-header h3 {
+    font-size: 13px;
+  }
+
+  .results-count {
+    font-size: 11px;
   }
 }

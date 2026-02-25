@@ -4,7 +4,9 @@ import Header from './components/Header';
 import Carousel from './components/Carousel';
 import StatsSection from './components/StatsSection';
 import NewReleasesSection from './components/NewReleasesSection';
+import TopSellersSection from './components/TopSellersSection';
 import AllReleasesPage from './components/AllReleasesPage';
+import ReleaseDetailPage from './components/ReleaseDetailPage';
 import FavoritesPage from './components/FavoritesPage';
 import CartPage from './components/CartPage';
 import GenrePage from './components/GenrePage';
@@ -24,6 +26,8 @@ function App() {
                 <Carousel />
                 <StatsSection />
                 <NewReleasesSection />
+                {/* ✅ НОВОЕ: Топ продаж на главной */}
+                <TopSellersSection />
                 <main className="main-content">
                   <section className="hero">
                     <h2>Welcome to Plastcater</h2>
@@ -36,6 +40,9 @@ function App() {
 
           {/* Страница со всеми релизами */}
           <Route path="/all-releases" element={<AllReleasesPage />} />
+
+          {/* Страница деталей пластинки */}
+          <Route path="/release/:releaseId" element={<ReleaseDetailPage />} />
 
           {/* Страница избранного */}
           <Route path="/favorites" element={<FavoritesPage />} />

@@ -5,10 +5,9 @@
 //   artist: исполнитель,
 //   image: URL обложки,
 //   label: лейбл,
-//   format: формат (Vinyl LP, Digital, и т.д.)
+//   format: формат (Vinyl LP, Digital, и т.д.),
+//   price: цена в евро
 // }
-
-// Все пластинки организованы по жанрам
 
 export const releasesDatabase = {
   techno: [
@@ -18,7 +17,8 @@ export const releasesDatabase = {
       artist: 'Synthetic Wave',
       image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
       label: 'Digital Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 204.99
     },
     {
       id: 102,
@@ -26,7 +26,8 @@ export const releasesDatabase = {
       artist: 'Dark Matter',
       image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
       label: 'Techno Collective',
-      format: 'Digital + Vinyl'
+      format: 'Digital + Vinyl',
+      price: 29.99
     },
     {
       id: 103,
@@ -34,7 +35,8 @@ export const releasesDatabase = {
       artist: 'Future Beats',
       image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
       label: 'Tech Motion',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 22.50
     },
     {
       id: 104,
@@ -42,7 +44,8 @@ export const releasesDatabase = {
       artist: 'Tech Wave',
       image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
       label: 'Motion Records',
-      format: 'Digital'
+      format: 'Digital',
+      price: 9.99
     },
     {
       id: 105,
@@ -50,7 +53,8 @@ export const releasesDatabase = {
       artist: 'Echo Lab',
       image: 'https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=300&h=300&fit=crop',
       label: 'Tech Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 26.99
     },
     {
       id: 106,
@@ -58,7 +62,8 @@ export const releasesDatabase = {
       artist: 'Robot Sound',
       image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
       label: 'Sound Records',
-      format: 'Digital + Vinyl'
+      format: 'Digital + Vinyl',
+      price: 28.50
     },
     {
       id: 107,
@@ -66,7 +71,8 @@ export const releasesDatabase = {
       artist: 'Code Flow',
       image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
       label: 'Code Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 25.99
     },
     {
       id: 108,
@@ -74,7 +80,8 @@ export const releasesDatabase = {
       artist: 'Wire Sound',
       image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
       label: 'Wire Records',
-      format: 'Limited Edition'
+      format: 'Limited Edition',
+      price: 34.99
     }
   ],
   house: [
@@ -84,7 +91,8 @@ export const releasesDatabase = {
       artist: 'Echo Waves',
       image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
       label: 'House Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 23.99
     },
     {
       id: 202,
@@ -92,7 +100,8 @@ export const releasesDatabase = {
       artist: 'Groove Master',
       image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
       label: 'Groove Records',
-      format: 'Digital + Vinyl'
+      format: 'Digital + Vinyl',
+      price: 27.50
     },
     {
       id: 203,
@@ -100,7 +109,8 @@ export const releasesDatabase = {
       artist: 'Funk Collective',
       image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
       label: 'Funk Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 25.00
     },
     {
       id: 204,
@@ -108,7 +118,8 @@ export const releasesDatabase = {
       artist: 'Tech Lovers',
       image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
       label: 'Tech House Records',
-      format: 'Digital'
+      format: 'Digital',
+      price: 11.99
     },
     {
       id: 205,
@@ -116,7 +127,8 @@ export const releasesDatabase = {
       artist: 'Journey Sound',
       image: 'https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=300&h=300&fit=crop',
       label: 'Journey Records',
-      format: 'Digital + Vinyl'
+      format: 'Digital + Vinyl',
+      price: 28.00
     },
     {
       id: 206,
@@ -124,7 +136,8 @@ export const releasesDatabase = {
       artist: 'Soul Makers',
       image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
       label: 'Soul Records',
-      format: 'Digital + Vinyl'
+      format: 'Digital + Vinyl',
+      price: 26.50
     },
     {
       id: 207,
@@ -132,7 +145,8 @@ export const releasesDatabase = {
       artist: 'Minimal Crew',
       image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
       label: 'Minimal Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 24.50
     },
     {
       id: 208,
@@ -140,7 +154,8 @@ export const releasesDatabase = {
       artist: 'Progressive Minds',
       image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
       label: 'Progressive Records',
-      format: 'Limited Edition'
+      format: 'Limited Edition',
+      price: 32.99
     }
   ],
   'drum-bass': [
@@ -150,7 +165,8 @@ export const releasesDatabase = {
       artist: 'Liquid Masters',
       image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
       label: 'Liquid Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 25.50
     },
     {
       id: 302,
@@ -158,7 +174,8 @@ export const releasesDatabase = {
       artist: 'Neuro Collective',
       image: 'https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=300&h=300&fit=crop',
       label: 'Neuro Records',
-      format: 'Digital + Vinyl'
+      format: 'Digital + Vinyl',
+      price: 29.50
     },
     {
       id: 303,
@@ -166,7 +183,8 @@ export const releasesDatabase = {
       artist: 'Break Dancers',
       image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
       label: 'Break Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 24.00
     },
     {
       id: 304,
@@ -174,7 +192,8 @@ export const releasesDatabase = {
       artist: 'Jungle Crew',
       image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
       label: 'Jungle Records',
-      format: 'Digital'
+      format: 'Digital',
+      price: 10.99
     },
     {
       id: 305,
@@ -182,7 +201,8 @@ export const releasesDatabase = {
       artist: 'Machine Masters',
       image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
       label: 'Machine Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 27.00
     },
     {
       id: 306,
@@ -190,7 +210,8 @@ export const releasesDatabase = {
       artist: 'Bass Kings',
       image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
       label: 'Bass Records',
-      format: 'Digital + Vinyl'
+      format: 'Digital + Vinyl',
+      price: 28.99
     },
     {
       id: 307,
@@ -198,7 +219,8 @@ export const releasesDatabase = {
       artist: 'Jump Collective',
       image: 'https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=300&h=300&fit=crop',
       label: 'Jump Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 23.50
     },
     {
       id: 308,
@@ -206,7 +228,8 @@ export const releasesDatabase = {
       artist: 'Atmo Sound',
       image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
       label: 'Atmo Records',
-      format: 'Limited Edition'
+      format: 'Limited Edition',
+      price: 35.99
     }
   ],
   dubstep: [
@@ -216,7 +239,8 @@ export const releasesDatabase = {
       artist: 'Drop Masters',
       image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
       label: 'Drop Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 26.00
     },
     {
       id: 402,
@@ -224,7 +248,8 @@ export const releasesDatabase = {
       artist: 'Wobble Crew',
       image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
       label: 'Wobble Records',
-      format: 'Digital + Vinyl'
+      format: 'Digital + Vinyl',
+      price: 30.00
     },
     {
       id: 403,
@@ -232,7 +257,8 @@ export const releasesDatabase = {
       artist: 'Bro Sound',
       image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
       label: 'Bro Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 24.50
     },
     {
       id: 404,
@@ -240,7 +266,8 @@ export const releasesDatabase = {
       artist: 'Riddim Masters',
       image: 'https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=300&h=300&fit=crop',
       label: 'Riddim Records',
-      format: 'Digital'
+      format: 'Digital',
+      price: 9.50
     },
     {
       id: 405,
@@ -248,7 +275,8 @@ export const releasesDatabase = {
       artist: 'Heavy Collective',
       image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
       label: 'Heavy Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 25.99
     },
     {
       id: 406,
@@ -256,7 +284,8 @@ export const releasesDatabase = {
       artist: 'Journey Masters',
       image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
       label: 'Journey Records',
-      format: 'Digital + Vinyl'
+      format: 'Digital + Vinyl',
+      price: 29.00
     },
     {
       id: 407,
@@ -264,7 +293,8 @@ export const releasesDatabase = {
       artist: 'Aggressive Sound',
       image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
       label: 'Aggressive Records',
-      format: 'Vinyl LP'
+      format: 'Vinyl LP',
+      price: 27.50
     },
     {
       id: 408,
@@ -272,57 +302,52 @@ export const releasesDatabase = {
       artist: 'Liquid Vibes',
       image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
       label: 'Liquid Records',
-      format: 'Limited Edition'
+      format: 'Limited Edition',
+      price: 33.50
     }
   ]
 };
 
-// ============================================
-// КАТЕГОРИИ НОВЫХ И ПОПУЛЯРНЫХ РЕЛИЗОВ
-// ============================================
+// ✅ ОБНОВЛЕНО: Топ продаж теперь берет цену из базы
+export const topSellersThisMonth = [
+  { id: 101, rank: 1 },
+  { id: 203, rank: 2 },
+  { id: 302, rank: 3 },
+];
 
-/**
- * Новые релизы (используются в NewReleasesSection)
- */
-export const newReleasesIds = [101, 102, 103, 104, 105, 106, 107, 108];
-
-/**
- * Релизы "Back In Stock" (используются в NewReleasesSection)
- */
+export const newReleasesIds = [1, 2, 3, 4, 5, 6, 7, 8];
 export const backInStockIds = [101, 102, 103, 104, 105, 106, 107, 108];
 
 // ============================================
 // ФУНКЦИИ ПОМОЩНИКИ
 // ============================================
 
-/**
- * Получить все новые релизы
- */
 export const getNewReleases = () => {
   return newReleasesIds
     .map(id => getReleaseById(id))
     .filter(release => release !== null);
 };
 
-/**
- * Получить все релизы "Back In Stock"
- */
 export const getBackInStockReleases = () => {
   return backInStockIds
     .map(id => getReleaseById(id))
     .filter(release => release !== null);
 };
 
-/**
- * Получить все пластинки конкретного жанра
- */
+// ✅ ОБНОВЛЕНО: Получить топ продаж с полной ��нформацией из базы
+export const getTopSellersThisMonth = () => {
+  return topSellersThisMonth
+    .map(topSeller => {
+      const release = getReleaseById(topSeller.id);
+      return release ? { ...release, rank: topSeller.rank } : null;
+    })
+    .filter(item => item !== null);
+};
+
 export const getReleasesByGenre = (genreId) => {
   return releasesDatabase[genreId] || [];
 };
 
-/**
- * Получить пластинку по ID из любой категории
- */
 export const getReleaseById = (id) => {
   for (const genre in releasesDatabase) {
     const release = releasesDatabase[genre].find(r => r.id === id);
@@ -331,9 +356,6 @@ export const getReleaseById = (id) => {
   return null;
 };
 
-/**
- * Получить все пластинки из всех жанров
- */
 export const getAllReleases = () => {
   const allReleases = [];
   for (const genre in releasesDatabase) {
@@ -342,9 +364,6 @@ export const getAllReleases = () => {
   return allReleases;
 };
 
-/**
- * Поиск пластинок по названию или исполнителю
- */
 export const searchReleases = (query) => {
   const lowercaseQuery = query.toLowerCase();
   return getAllReleases().filter(release => 
@@ -354,9 +373,6 @@ export const searchReleases = (query) => {
   );
 };
 
-/**
- * Получить жанры
- */
 export const getGenres = () => {
   return Object.keys(releasesDatabase);
 };

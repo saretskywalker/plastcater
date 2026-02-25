@@ -7,6 +7,8 @@
   --gray-light: #555555;
   --accent-purple: #7c3aed;
   --accent-purple-light: #a855f7;
+  --success-green: #10b981;
+  --success-green-light: #34d399;
 }
 
 .new-releases-section,
@@ -75,10 +77,49 @@
   gap: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .release-card:hover {
   transform: translateY(-8px);
+}
+
+/* ✅ ИСПРАВЛЕНО: Синхронизированная анимация для In Cart */
+.release-card.in-cart .release-image-wrapper {
+  border: 3px solid var(--success-green);
+  transition: border 0.3s ease;
+}
+
+.release-card.in-cart::after {
+  content: '✓ In Cart';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: var(--success-green);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 10;
+  /* ✅ ИСПРАВЛЕНО: Одинаковый timing для появления и исчезновения */
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.release-card:not(.in-cart)::after {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Отключение анимаций при загрузке */
+.release-card.no-animation,
+.release-card.no-animation * {
+  animation: none !important;
+  transition: none !important;
 }
 
 /* Обертка изображения */
@@ -89,15 +130,15 @@
   overflow: hidden;
   border-radius: 8px;
   background-color: var(--dark-secondary);
-  /* z-index нужен для правильного контекста наложения */
   z-index: 1;
+  border: 3px solid transparent;
+  transition: border 0.3s ease;
 }
 
 .release-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Плавный зум при наведении и при уходе */
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
@@ -106,9 +147,7 @@
   transform: scale(1.08);
 }
 
-/* ОБНОВЛЕНО: Затемнение 
-   Теперь используем opacity и transition вместо animation 
-*/
+/* Затемнение */
 .release-overlay {
   position: absolute;
   top: 0;
@@ -118,44 +157,39 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   
-  /* Скрыто по умолчанию */
   opacity: 0;
-  pointer-events: none; /* Чтобы клики проходили сквозь невидимый слой */
+  pointer-events: none;
   
-  /* Плавный переход в обе стороны */
   transition: opacity 0.3s ease;
+  will-change: opacity;
 }
 
-/* Показываем оверлей при наведении на КАРТОЧКУ */
 .release-card:hover .release-overlay {
   opacity: 1;
+  pointer-events: auto;
 }
 
-/* ОБНОВЛЕНО: Кнопки действия 
-   Теперь используем transform и opacity для анимации в обе стороны
-*/
+/* Кнопки действия */
 .release-actions {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* Начальное состояние: уменьшено и прозрачно */
   transform: translate(-50%, -50%) scale(0.8);
   opacity: 0;
   
   display: flex;
   gap: 20px;
   z-index: 3;
-  pointer-events: none; /* Не блокируем клики, когда скрыто */
+  pointer-events: none;
   
-  /* Плавная анимация появления и исчезновения */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
 }
 
-/* Показываем кнопки при наведении на КАРТОЧКУ */
 .release-card:hover .release-actions {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
-  pointer-events: auto; /* Включаем клики */
+  pointer-events: auto;
 }
 
 .action-btn {
@@ -230,7 +264,8 @@
   font-weight: 500;
 }
 
-/* Responsive */
+/* ============ RESPONSIVE ============ */
+
 @media (max-width: 1200px) {
   .releases-grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

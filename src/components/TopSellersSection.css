@@ -1,0 +1,280 @@
+:root {
+  --dark-bg: #0f0f0f;
+  --dark-secondary: #1a1a1a;
+  --dark-tertiary: #2a2a2a;
+  --light-text: #ffffff;
+  --gray-text: #888888;
+  --gray-light: #555555;
+  --accent-purple: #7c3aed;
+  --accent-purple-light: #a855f7;
+}
+
+.top-sellers-section {
+  width: 100%;
+  background-color: var(--dark-bg);
+  padding: 80px 0;
+  border-top: 1px solid var(--dark-tertiary);
+  border-bottom: 1px solid var(--dark-tertiary);
+}
+
+.top-sellers-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.top-sellers-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--light-text);
+  margin: 0 0 60px;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.top-sellers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.top-seller-item {
+  display: grid;
+  grid-template-columns: 60px 100px 1fr 120px 60px;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid var(--dark-tertiary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.top-seller-item:hover {
+  background-color: var(--dark-secondary);
+}
+
+.top-seller-item:last-child {
+  border-bottom: none;
+}
+
+/* Номер ранга */
+.seller-rank {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.rank-number {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gray-light);
+  opacity: 0.4;
+  letter-spacing: 2px;
+}
+
+/* Изображение */
+.seller-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--dark-secondary);
+  border: 1px solid var(--dark-tertiary);
+}
+
+.seller-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.top-seller-item:hover .seller-image {
+  transform: scale(1.05);
+}
+
+/* Информация */
+.seller-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.seller-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--light-text);
+  margin: 0;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease;
+}
+
+.top-seller-item:hover .seller-title {
+  color: var(--accent-purple);
+}
+
+.seller-artist {
+  font-size: 14px;
+  color: var(--gray-text);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Цена */
+.seller-price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.price-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent-purple);
+  letter-spacing: 1px;
+}
+
+/* Кнопка добавления */
+.seller-add-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-tertiary);
+  background-color: transparent;
+  color: var(--gray-text);
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seller-add-btn:hover {
+  background-color: var(--accent-purple);
+  border-color: var(--accent-purple);
+  color: var(--light-text);
+  transform: scale(1.1);
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 1200px) {
+  .top-seller-item {
+    grid-template-columns: 50px 80px 1fr 100px 50px;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .seller-title {
+    font-size: 16px;
+  }
+
+  .seller-artist {
+    font-size: 13px;
+  }
+
+  .price-value {
+    font-size: 20px;
+  }
+
+  .seller-add-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-sellers-section {
+    padding: 60px 0;
+  }
+
+  .top-sellers-container {
+    padding: 0 16px;
+  }
+
+  .top-sellers-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .top-seller-item {
+    grid-template-columns: 40px 70px 1fr 80px 44px;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .seller-title {
+    font-size: 14px;
+  }
+
+  .seller-artist {
+    font-size: 12px;
+  }
+
+  .price-value {
+    font-size: 18px;
+  }
+
+  .seller-add-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .rank-number {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-sellers-section {
+    padding: 40px 0;
+  }
+
+  .top-sellers-container {
+    padding: 0 12px;
+  }
+
+  .top-sellers-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .top-seller-item {
+    grid-template-columns: 35px 60px 1fr 70px 40px;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .seller-title {
+    font-size: 13px;
+  }
+
+  .seller-artist {
+    font-size: 11px;
+  }
+
+  .price-value {
+    font-size: 16px;
+  }
+
+  .seller-add-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .rank-number {
+    font-size: 24px;
+  }
+}
