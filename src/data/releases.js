@@ -1,326 +1,310 @@
-// Структура каждой пластинки:
-// {
-//   id: уникальный номер,
-//   title: название альбома,
-//   artist: исполнитель,
-//   image: URL обложки,
-//   label: лейбл,
-//   format: формат (Vinyl LP, Digital, и т.д.),
-//   price: цена в евро
-// }
-
 export const releasesDatabase = {
   techno: [
     {
       id: 101,
-      title: 'Electric Dreams',
-      artist: 'Synthetic Wave',
-      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
-      label: 'Digital Records',
+      title: 'Aphex Twin',
+      artist: 'Aphex Twin',
+      image: require('./apex_twin_apex_twin.png'),
+      label: 'Sire Records',
       format: 'Vinyl LP',
-      price: 204.99
+      price: 34.99
     },
     {
       id: 102,
-      title: 'Neon Nights',
-      artist: 'Dark Matter',
-      image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
-      label: 'Techno Collective',
-      format: 'Digital + Vinyl',
-      price: 29.99
+      title: 'Richard D. James Album',
+      artist: 'Aphex Twin',
+      image: require('./apex_twin_richard.jpg'),
+      label: 'Warp Records',
+      format: 'Vinyl LP',
+      price: 31.99
     },
     {
       id: 103,
-      title: 'Techno Pulse',
-      artist: 'Future Beats',
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
-      label: 'Tech Motion',
+      title: 'Around the Fur',
+      artist: 'Deftones',
+      image: require('./deftones_around_the_fur.jpg'),
+      label: 'Maverick Records',
       format: 'Vinyl LP',
-      price: 22.50
+      price: 28.99
     },
     {
       id: 104,
-      title: 'Digital Motion',
-      artist: 'Tech Wave',
-      image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
-      label: 'Motion Records',
-      format: 'Digital',
-      price: 9.99
+      title: 'Diamond Eyes',
+      artist: 'Deftones',
+      image: require('./deftones_diamond_eye.jpg'),
+      label: 'Reprise Records',
+      format: 'Vinyl LP',
+      price: 27.50
     },
     {
       id: 105,
-      title: 'Synthetic Soul',
-      artist: 'Echo Lab',
-      image: 'https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=300&h=300&fit=crop',
-      label: 'Tech Records',
+      title: 'Violator',
+      artist: 'Depeche Mode',
+      image: require('./Depeche_Mode_Violator.png'),
+      label: 'Mute Records',
       format: 'Vinyl LP',
-      price: 26.99
+      price: 32.99
     },
     {
       id: 106,
-      title: 'Machine Dreams',
-      artist: 'Robot Sound',
-      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
-      label: 'Sound Records',
-      format: 'Digital + Vinyl',
-      price: 28.50
+      title: 'Selected Ambient Works 85–92',
+      artist: 'Aphex Twin',
+      image: require('./apex_twin_apex_twin.png'),
+      label: 'Apollo Records',
+      format: 'Vinyl 2xLP',
+      price: 42.99
     },
     {
       id: 107,
-      title: 'Binary Beats',
-      artist: 'Code Flow',
-      image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
-      label: 'Code Records',
+      title: 'Musik Non Stop',
+      artist: 'Kraftwerk',
+      image: require('./apex_twin_richard.jpg'),
+      label: 'EMI',
       format: 'Vinyl LP',
-      price: 25.99
+      price: 29.99
     },
     {
       id: 108,
-      title: 'Circuit Vibes',
-      artist: 'Wire Sound',
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
-      label: 'Wire Records',
+      title: 'Trans-Europe Express',
+      artist: 'Kraftwerk',
+      image: require('./deftones_around_the_fur.jpg'),
+      label: 'Capitol Records',
       format: 'Limited Edition',
-      price: 34.99
+      price: 38.99
     }
   ],
   house: [
     {
       id: 201,
-      title: 'Deep House Vibes',
-      artist: 'Echo Waves',
-      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
-      label: 'House Records',
-      format: 'Vinyl LP',
-      price: 23.99
+      title: 'Homework',
+      artist: 'Daft Punk',
+      image: require('./deftones_diamond_eye.jpg'),
+      label: 'Virgin Records',
+      format: 'Vinyl 2xLP',
+      price: 39.99
     },
     {
       id: 202,
-      title: 'House Grooves',
-      artist: 'Groove Master',
-      image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
-      label: 'Groove Records',
-      format: 'Digital + Vinyl',
-      price: 27.50
+      title: 'Discovery',
+      artist: 'Daft Punk',
+      image: require('./Depeche_Mode_Violator.png'),
+      label: 'Virgin Records',
+      format: 'Vinyl 2xLP',
+      price: 41.99
     },
     {
       id: 203,
-      title: 'Funky House',
-      artist: 'Funk Collective',
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
-      label: 'Funk Records',
-      format: 'Vinyl LP',
-      price: 25.00
+      title: 'Music Sounds Better With You',
+      artist: 'Stardust',
+      image: require('./apex_twin_apex_twin.png'),
+      label: 'Roule',
+      format: 'Vinyl 12"',
+      price: 18.99
     },
     {
       id: 204,
-      title: 'Tech House',
-      artist: 'Tech Lovers',
-      image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
-      label: 'Tech House Records',
-      format: 'Digital',
-      price: 11.99
+      title: 'Strings of Life',
+      artist: 'Rhythim Is Rhythim',
+      image: require('./apex_twin_richard.jpg'),
+      label: 'Transmat',
+      format: 'Vinyl 12"',
+      price: 22.99
     },
     {
       id: 205,
-      title: 'House Journey',
-      artist: 'Journey Sound',
-      image: 'https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=300&h=300&fit=crop',
-      label: 'Journey Records',
-      format: 'Digital + Vinyl',
-      price: 28.00
+      title: 'My Life',
+      artist: 'Larry Heard',
+      image: require('./deftones_around_the_fur.jpg'),
+      label: 'Alleviated Records',
+      format: 'Vinyl LP',
+      price: 27.99
     },
     {
       id: 206,
-      title: 'Soulful House',
-      artist: 'Soul Makers',
-      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
-      label: 'Soul Records',
-      format: 'Digital + Vinyl',
-      price: 26.50
+      title: 'Spastik',
+      artist: 'Plastikman',
+      image: require('./deftones_diamond_eye.jpg'),
+      label: 'Novamute',
+      format: 'Vinyl 12"',
+      price: 19.99
     },
     {
       id: 207,
-      title: 'Minimal House',
-      artist: 'Minimal Crew',
-      image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
-      label: 'Minimal Records',
+      title: 'I Feel Love',
+      artist: 'Donna Summer',
+      image: require('./Depeche_Mode_Violator.png'),
+      label: 'Casablanca Records',
       format: 'Vinyl LP',
-      price: 24.50
+      price: 24.99
     },
     {
       id: 208,
-      title: 'Progressive House',
-      artist: 'Progressive Minds',
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
-      label: 'Progressive Records',
+      title: 'Can You Feel It',
+      artist: 'Larry Heard',
+      image: require('./apex_twin_apex_twin.png'),
+      label: 'Trax Records',
       format: 'Limited Edition',
-      price: 32.99
+      price: 35.99
     }
   ],
   'drum-bass': [
     {
       id: 301,
-      title: 'Liquid Funk',
-      artist: 'Liquid Masters',
-      image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
-      label: 'Liquid Records',
-      format: 'Vinyl LP',
-      price: 25.50
+      title: 'Music for the Jilted Generation',
+      artist: 'The Prodigy',
+      image: require('./apex_twin_richard.jpg'),
+      label: 'XL Recordings',
+      format: 'Vinyl 2xLP',
+      price: 37.99
     },
     {
       id: 302,
-      title: 'Neurofunk',
-      artist: 'Neuro Collective',
-      image: 'https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=300&h=300&fit=crop',
-      label: 'Neuro Records',
-      format: 'Digital + Vinyl',
-      price: 29.50
+      title: 'New Forms',
+      artist: 'Roni Size / Reprazent',
+      image: require('./deftones_around_the_fur.jpg'),
+      label: 'Talkin Loud',
+      format: 'Vinyl 2xLP',
+      price: 34.99
     },
     {
       id: 303,
-      title: 'Fast Break',
-      artist: 'Break Dancers',
-      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
-      label: 'Break Records',
+      title: 'Blue Lines',
+      artist: 'Massive Attack',
+      image: require('./deftones_diamond_eye.jpg'),
+      label: 'Wild Bunch Records',
       format: 'Vinyl LP',
-      price: 24.00
+      price: 29.99
     },
     {
       id: 304,
-      title: 'Jungle Beats',
-      artist: 'Jungle Crew',
-      image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
-      label: 'Jungle Records',
-      format: 'Digital',
-      price: 10.99
+      title: 'Goldie Presents Metalheadz',
+      artist: 'Goldie',
+      image: require('./Depeche_Mode_Violator.png'),
+      label: 'Metalheadz',
+      format: 'Vinyl 2xLP',
+      price: 38.99
     },
     {
       id: 305,
-      title: 'Drum Machines',
-      artist: 'Machine Masters',
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
-      label: 'Machine Records',
-      format: 'Vinyl LP',
-      price: 27.00
+      title: 'Timeless',
+      artist: 'Goldie',
+      image: require('./apex_twin_apex_twin.png'),
+      label: 'ffrr',
+      format: 'Vinyl 2xLP',
+      price: 36.99
     },
     {
       id: 306,
-      title: 'Bass Heavy',
-      artist: 'Bass Kings',
-      image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
-      label: 'Bass Records',
-      format: 'Digital + Vinyl',
+      title: 'Accelerator',
+      artist: 'Future Sound of London',
+      image: require('./apex_twin_richard.jpg'),
+      label: 'Jumpin & Pumpin',
+      format: 'Vinyl LP',
       price: 28.99
     },
     {
       id: 307,
-      title: 'Jump Up',
-      artist: 'Jump Collective',
-      image: 'https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=300&h=300&fit=crop',
-      label: 'Jump Records',
-      format: 'Vinyl LP',
-      price: 23.50
+      title: 'Since I Left You',
+      artist: 'The Avalanches',
+      image: require('./deftones_around_the_fur.jpg'),
+      label: 'Modular Recordings',
+      format: 'Vinyl 2xLP',
+      price: 33.99
     },
     {
       id: 308,
-      title: 'Atmospheric D&B',
-      artist: 'Atmo Sound',
-      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
-      label: 'Atmo Records',
+      title: 'Submarine',
+      artist: 'LTJ Bukem',
+      image: require('./deftones_diamond_eye.jpg'),
+      label: 'Good Looking Records',
       format: 'Limited Edition',
-      price: 35.99
+      price: 39.99
     }
   ],
   dubstep: [
     {
       id: 401,
-      title: 'Bass Drop',
-      artist: 'Drop Masters',
-      image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
-      label: 'Drop Records',
-      format: 'Vinyl LP',
-      price: 26.00
+      title: 'Beware',
+      artist: 'Burial',
+      image: require('./Depeche_Mode_Violator.png'),
+      label: 'Hyperdub',
+      format: 'Vinyl 12"',
+      price: 21.99
     },
     {
       id: 402,
-      title: 'Wobble Sound',
-      artist: 'Wobble Crew',
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
-      label: 'Wobble Records',
-      format: 'Digital + Vinyl',
-      price: 30.00
+      title: 'Untrue',
+      artist: 'Burial',
+      image: require('./apex_twin_apex_twin.png'),
+      label: 'Hyperdub',
+      format: 'Vinyl 2xLP',
+      price: 36.99
     },
     {
       id: 403,
-      title: 'Brostep Vibes',
-      artist: 'Bro Sound',
-      image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
-      label: 'Bro Records',
+      title: 'Skull Disco',
+      artist: 'Shackleton',
+      image: require('./apex_twin_richard.jpg'),
+      label: 'Skull Disco',
       format: 'Vinyl LP',
-      price: 24.50
+      price: 27.99
     },
     {
       id: 404,
-      title: 'Riddim',
-      artist: 'Riddim Masters',
-      image: 'https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=300&h=300&fit=crop',
-      label: 'Riddim Records',
-      format: 'Digital',
-      price: 9.50
+      title: 'Tempa T – Next Hype',
+      artist: 'Tempa T',
+      image: require('./deftones_around_the_fur.jpg'),
+      label: 'Tempa',
+      format: 'Vinyl 12"',
+      price: 16.99
     },
     {
       id: 405,
-      title: 'Heavy Bass',
-      artist: 'Heavy Collective',
-      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
-      label: 'Heavy Records',
-      format: 'Vinyl LP',
-      price: 25.99
+      title: 'In My Head',
+      artist: 'Digital Mystikz',
+      image: require('./deftones_diamond_eye.jpg'),
+      label: 'DMZ',
+      format: 'Vinyl 12"',
+      price: 19.99
     },
     {
       id: 406,
-      title: 'Dubstep Journey',
-      artist: 'Journey Masters',
-      image: 'https://images.unsplash.com/photo-1614613535308-eb5fbd8f2c19?w=300&h=300&fit=crop',
-      label: 'Journey Records',
-      format: 'Digital + Vinyl',
-      price: 29.00
+      title: "Vex'd",
+      artist: "Vex'd",
+      image: require('./Depeche_Mode_Violator.png'),
+      label: 'Planet Mu',
+      format: 'Vinyl LP',
+      price: 26.99
     },
     {
       id: 407,
-      title: 'Aggressive Dub',
-      artist: 'Aggressive Sound',
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop',
-      label: 'Aggressive Records',
+      title: 'Black Sun',
+      artist: 'Kode9 & Spaceape',
+      image: require('./apex_twin_apex_twin.png'),
+      label: 'Hyperdub',
       format: 'Vinyl LP',
-      price: 27.50
+      price: 28.99
     },
     {
       id: 408,
-      title: 'Liquid Dubstep',
-      artist: 'Liquid Vibes',
-      image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop',
-      label: 'Liquid Records',
+      title: 'Memories / Sublow',
+      artist: 'Skream',
+      image: require('./apex_twin_richard.jpg'),
+      label: 'Tempa',
       format: 'Limited Edition',
-      price: 33.50
+      price: 32.99
     }
   ]
 };
 
-// ✅ ОБНОВЛЕНО: Топ продаж теперь берет цену из базы
 export const topSellersThisMonth = [
   { id: 101, rank: 1 },
   { id: 203, rank: 2 },
   { id: 302, rank: 3 },
 ];
 
-export const newReleasesIds = [101, 102, 103, 204, 5, 6, 7, 8];
-export const backInStockIds = [101, 102, 103, 104, 105, 106, 107, 108];
-
-// ============================================
-// ФУНКЦИИ ПОМОЩНИКИ
-// ============================================
+export const newReleasesIds = [101, 102, 103, 104, 105, 106, 201, 202];
+export const backInStockIds = [301, 302, 303, 304, 401, 402, 403, 404];
 
 export const getNewReleases = () => {
   return newReleasesIds
@@ -334,7 +318,6 @@ export const getBackInStockReleases = () => {
     .filter(release => release !== null);
 };
 
-// ✅ ОБНОВЛЕНО: Получить топ продаж с полной ��нформацией из базы
 export const getTopSellersThisMonth = () => {
   return topSellersThisMonth
     .map(topSeller => {
@@ -366,7 +349,7 @@ export const getAllReleases = () => {
 
 export const searchReleases = (query) => {
   const lowercaseQuery = query.toLowerCase();
-  return getAllReleases().filter(release => 
+  return getAllReleases().filter(release =>
     release.title.toLowerCase().includes(lowercaseQuery) ||
     release.artist.toLowerCase().includes(lowercaseQuery) ||
     release.label.toLowerCase().includes(lowercaseQuery)

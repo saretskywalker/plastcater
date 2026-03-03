@@ -54,7 +54,7 @@ const ReleaseDetailPage = () => {
       const filtered = cart.filter(item => item.id !== release.id);
       localStorage.setItem('cart', JSON.stringify(filtered));
     } else {
-      cart.push(release);
+      cart.push({ ...release, quantity: 1 });
       localStorage.setItem('cart', JSON.stringify(cart));
     }
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Trash2, Plus, Minus, ShoppingCart } from 'lucide-react';
+import { getReleaseById } from '../data/releases';
 import './CartPage.css';
 
 const CartPage = () => {
@@ -28,7 +29,11 @@ const CartPage = () => {
 
   const loadCart = () => {
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    setCartItems(cart);
+    const cartWithPrices = cart.map(item => {
+      const release = getReleaseById(item.id);
+      return { ...item, price: release ? release.price : item.price };
+    });
+    setCartItems(cartWithPrices);
   };
 
   const calculateSubtotal = () => {
@@ -95,6 +100,7 @@ const CartPage = () => {
                     <button
                       className="qty-btn"
                       onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                      disabled={item.quantity <= 1}
                     >
                       <Minus size={16} />
                     </button>
