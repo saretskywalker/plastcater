@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ShoppingCart, LogIn, Search, Globe, Heart } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ShoppingCart, LogIn, Search, Globe, Heart, LogOut } from 'lucide-react';
 import SearchResults from './SearchResults';
 import './Header.css';
 
@@ -10,28 +10,30 @@ const Header = () => {
   const [searchValue, setSearchValue] = useState('');
   const [favoriteCount, setFavoriteCount] = useState(0);
   const [showSearchResults, setShowSearchResults] = useState(false);
+  const [user, setUser] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadCounts();
+    loadUser();
 
-    const handleCartUpdated = () => {
-      loadCounts();
-    };
-
-    const handleFavoritesUpdated = () => {
-      loadCounts();
-    };
+    const handleCartUpdated = () => loadCounts();
+    const handleFavoritesUpdated = () => loadCounts();
+    const handleUserLoggedIn = () => loadUser();
 
     window.addEventListener('cartUpdated', handleCartUpdated);
     window.addEventListener('favoritesUpdated', handleFavoritesUpdated);
     window.addEventListener('storage', handleCartUpdated);
     window.addEventListener('storage', handleFavoritesUpdated);
+    window.addEventListener('userLoggedIn', handleUserLoggedIn);
 
     return () => {
       window.removeEventListener('cartUpdated', handleCartUpdated);
       window.removeEventListener('favoritesUpdated', handleFavoritesUpdated);
       window.removeEventListener('storage', handleCartUpdated);
       window.removeEventListener('storage', handleFavoritesUpdated);
+      window.removeEventListener('userLoggedIn', handleUserLoggedIn);
     };
   }, []);
 
@@ -40,6 +42,21 @@ const Header = () => {
     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     setCartCount(cart.length);
     setFavoriteCount(favorites.length);
+  };
+
+  const loadUser = () => {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      setUser(JSON.parse(userData));
+    } else {
+      setUser(null);
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+    navigate('/');
   };
 
   const genres = [
@@ -125,10 +142,17 @@ const Header = () => {
             )}
           </Link>
 
-          <button className="login-btn">
-            <LogIn size={20} />
-            <span>Login</span>
-          </button>
+          {user ? (
+            <button className="login-btn" onClick={handleLogout} title={`Logged in as ${user.email}`}>
+              <LogOut size={20} />
+              <span>Logout</span>
+            </button>
+          ) : (
+            <Link to="/login" className="login-btn">
+              <LogIn size={20} />
+              <span>Login</span>
+            </Link>
+          )}
         </div>
       </div>
 

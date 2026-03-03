@@ -315,7 +315,7 @@ export const topSellersThisMonth = [
   { id: 302, rank: 3 },
 ];
 
-export const newReleasesIds = [1, 2, 3, 4, 5, 6, 7, 8];
+export const newReleasesIds = [101, 102, 103, 204, 5, 6, 7, 8];
 export const backInStockIds = [101, 102, 103, 104, 105, 106, 107, 108];
 
 // ============================================

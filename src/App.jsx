@@ -10,6 +10,8 @@ import ReleaseDetailPage from './components/ReleaseDetailPage';
 import FavoritesPage from './components/FavoritesPage';
 import CartPage from './components/CartPage';
 import GenrePage from './components/GenrePage';
+import LoginPage from './components/LoginPage';
+import RegisterPage from './components/RegisterPage';
 import './App.css';
 
 function App() {
@@ -26,7 +28,6 @@ function App() {
                 <Carousel />
                 <StatsSection />
                 <NewReleasesSection />
-                {/* ✅ НОВОЕ: Топ продаж на главной */}
                 <TopSellersSection />
                 <main className="main-content">
                   <section className="hero">
@@ -37,6 +38,12 @@ function App() {
               </>
             }
           />
+
+          {/* Страница логина */}
+          <Route path="/login" element={<LoginPage />} />
+
+          {/* Страница регистрации */}
+          <Route path="/register" element={<RegisterPage />} />
 
           {/* Страница со всеми релизами */}
           <Route path="/all-releases" element={<AllReleasesPage />} />
